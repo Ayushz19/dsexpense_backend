@@ -7,7 +7,10 @@ import com.debsoc.expense.repository.ExpenseRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
@@ -78,6 +81,24 @@ public Expense updateExpenseStatus(Long id , String status){
         expense.setStatus(status);
         return expenseRepository.save(expense);
 }
+
+
+//    public Expense postExpense(ExpenseDTO expenseDTO, MultipartFile file) {
+//        // Handle file storage logic here (e.g., save the file to a directory or cloud storage)
+//
+//        // You may want to check if the file is not null and process it accordingly
+//        if (file != null && !file.isEmpty()) {
+//            try {
+//                // Example: Save the file locally (ensure you handle the path appropriately)
+//                String filePath = "path/to/save/" + file.getOriginalFilename();
+//                file.transferTo(new File(filePath));
+//                // Store the file path in the ExpenseDTO or Expense entity if needed
+//            } catch (IOException e) {
+//                throw new RuntimeException("Failed to save file: " + e.getMessage());
+//            }
+//        }
+//        return saveOrUpdateExpense(new Expense(), expenseDTO);
+//    }
 
 
 }
