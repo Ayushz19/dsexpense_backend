@@ -8,4 +8,5 @@ FROM openjdk:17.0.1-jdk-slim
 COPY --from=build /target/expense-0.0.1-SNAPSHOT.jar expense.jar
 EXPOSE 8080
 ENV PORT=8080
+
 ENTRYPOINT ["java", "-Dserver.port=${PORT}", "-jar", "expense.jar"]
